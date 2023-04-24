@@ -4,8 +4,6 @@ import states from '../../utilities/states';
 import Button from '../../components/Button/Button';
 
 export default function Dashboard({
-  totalInvoiceAmount,
-  currentInvoiceAmount,
   itemsArr,
   addInput,
   handleChangeItem,
@@ -157,6 +155,7 @@ export default function Dashboard({
 
                   <div className="item-total">
                     <input
+                      name="total"
                       value={
                         item.total !== '' ? `$${shortenNum(item.total)}` : ''
                       }
@@ -187,7 +186,7 @@ export default function Dashboard({
               </div>
               <div className="item-qty"></div>
               <div className="item-price">Total Amount</div>
-              <div className="item-total">${currentInvoiceAmount}</div>
+              <div className="item-total">$</div>
               <div className="item-trash"></div>
             </div>
           </div>

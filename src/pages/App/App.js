@@ -22,8 +22,6 @@ function App() {
 
   // add invoice items functionality
 
-  const [totalInvoiceAmount, setTotalInvoiceAmount] = useState(0);
-  const [currentInvoiceAmount, setCurrentInvoiceAmount] = useState(0);
   const [itemCounter, setItemCounter] = useState(1);
 
   const emptyItemInput = [
@@ -40,7 +38,6 @@ function App() {
 
   const addInput = () => {
     setItemCounter(itemCounter + 1);
-    setTotalInvoiceAmount(totalInvoiceAmount + currentInvoiceAmount);
 
     setItemsArr((items) => {
       return [
@@ -121,8 +118,6 @@ function App() {
           element={
             <>
               <Dashboard
-                totalInvoiceAmount={totalInvoiceAmount}
-                currentInvoiceAmount={currentInvoiceAmount}
                 itemsArr={itemsArr}
                 addInput={addInput}
                 handleChangeItem={handleChangeItem}
