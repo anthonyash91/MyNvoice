@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { shortenNum, convertNum } from '../../utilities/functions';
 import states from '../../utilities/states';
 import Button from '../../components/Button/Button';
-import { shortenNum } from '../../utilities/functions';
 
 export default function Dashboard({
   totalInvoiceAmount,
@@ -157,7 +157,9 @@ export default function Dashboard({
 
                   <div className="item-total">
                     <input
-                      value={`$${shortenNum(item.quantity * item.price)}`}
+                      value={
+                        item.total !== '' ? `$${shortenNum(item.total)}` : ''
+                      }
                       disabled
                     />
                   </div>
@@ -185,9 +187,7 @@ export default function Dashboard({
               </div>
               <div className="item-qty"></div>
               <div className="item-price">Total Amount</div>
-              <div className="item-total">
-                ${shortenNum(currentInvoiceAmount)}
-              </div>
+              <div className="item-total">${currentInvoiceAmount}</div>
               <div className="item-trash"></div>
             </div>
           </div>

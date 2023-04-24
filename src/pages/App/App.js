@@ -75,6 +75,8 @@ function App() {
     setItemsArr((items) => {
       const newItemsArr = items.slice();
       newItemsArr[index].quantity = e.target.value;
+      newItemsArr[index].total =
+        newItemsArr[index].quantity * newItemsArr[index].price;
 
       return newItemsArr;
     });
@@ -90,15 +92,12 @@ function App() {
       newItemsArr[index].total =
         newItemsArr[index].quantity * newItemsArr[index].price;
 
-      setCurrentInvoiceAmount(currentInvoiceAmount + newItemsArr[index].total);
-
       return newItemsArr;
     });
   };
 
   const removeItem = (id) => {
     setItemsArr(itemsArr.filter((item) => item.id !== id));
-    // setCurrentInvoiceAmount()
   };
 
   useEffect(() => {
