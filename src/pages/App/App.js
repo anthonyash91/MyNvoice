@@ -292,6 +292,7 @@ function App() {
           showFailureIndicators: showFailureIndicators,
           getUserData: getUserData,
           createInvoice: createInvoice,
+          invoiceId: invoiceId,
           selectedState: selectedState,
           invoiceData: invoiceData,
           clientAddress: clientAddress,

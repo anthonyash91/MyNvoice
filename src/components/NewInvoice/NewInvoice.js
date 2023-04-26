@@ -5,9 +5,9 @@ import states from '../../utilities/states';
 
 export default function NewInvoice() {
   const {
-    user,
     showFailureIndicators,
     createInvoice,
+    invoiceId,
     selectedState,
     invoiceData,
     clientAddress,
@@ -31,201 +31,200 @@ export default function NewInvoice() {
           <div id="invoice-id">
             Invoice{' '}
             <span>
-              <b>#</b>HF7738
+              <b>#</b>
+              {invoiceId}
             </span>
           </div>
 
-          <div id="recipient">
-            <div className="section">
-              <div>
-                <label
-                  className={
-                    showFailureIndicators && invoiceData.clientEmail === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                >
-                  {showFailureIndicators && invoiceData.clientEmail === ''
-                    ? 'Recipient Email *'
-                    : 'Recipient Email'}
-                </label>
-                <input
-                  className={
-                    showFailureIndicators && invoiceData.clientEmail === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                  type="email"
-                  name="clientEmail"
-                  value={invoiceData.clientEmail}
-                  onChange={handleChangeInvoiceData}
-                />
-              </div>
+          <div className="section">
+            <div>
+              <label
+                className={
+                  showFailureIndicators && invoiceData.clientEmail === ''
+                    ? 'invalid'
+                    : ''
+                }
+              >
+                {showFailureIndicators && invoiceData.clientEmail === ''
+                  ? 'Recipient Email *'
+                  : 'Recipient Email'}
+              </label>
+              <input
+                className={
+                  showFailureIndicators && invoiceData.clientEmail === ''
+                    ? 'invalid'
+                    : ''
+                }
+                type="email"
+                name="clientEmail"
+                value={invoiceData.clientEmail}
+                onChange={handleChangeInvoiceData}
+              />
+            </div>
+          </div>
+
+          <div className="section">
+            <div>
+              <label
+                className={
+                  showFailureIndicators && invoiceData.clientFirstName === ''
+                    ? 'invalid'
+                    : ''
+                }
+              >
+                {showFailureIndicators && invoiceData.clientFirstName === ''
+                  ? 'First Name *'
+                  : 'First Name'}
+              </label>
+              <input
+                className={
+                  showFailureIndicators && invoiceData.clientFirstName === ''
+                    ? 'invalid'
+                    : ''
+                }
+                type="test"
+                name="clientFirstName"
+                value={invoiceData.clientFirstName}
+                onChange={handleChangeInvoiceData}
+              />
             </div>
 
-            <div className="section">
-              <div>
-                <label
-                  className={
-                    showFailureIndicators && invoiceData.clientFirstName === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                >
-                  {showFailureIndicators && invoiceData.clientFirstName === ''
-                    ? 'First Name *'
-                    : 'First Name'}
-                </label>
-                <input
-                  className={
-                    showFailureIndicators && invoiceData.clientFirstName === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                  type="test"
-                  name="clientFirstName"
-                  value={invoiceData.clientFirstName}
-                  onChange={handleChangeInvoiceData}
-                />
-              </div>
+            <div>
+              <label
+                className={
+                  showFailureIndicators && invoiceData.clientLastName === ''
+                    ? 'invalid'
+                    : ''
+                }
+              >
+                {showFailureIndicators && invoiceData.clientLastName === ''
+                  ? 'Last Name *'
+                  : 'Last Name'}
+              </label>
+              <input
+                className={
+                  showFailureIndicators && invoiceData.clientLastName === ''
+                    ? 'invalid'
+                    : ''
+                }
+                type="text"
+                name="clientLastName"
+                value={invoiceData.clientLastName}
+                onChange={handleChangeInvoiceData}
+              />
+            </div>
+          </div>
 
-              <div>
-                <label
-                  className={
-                    showFailureIndicators && invoiceData.clientLastName === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                >
-                  {showFailureIndicators && invoiceData.clientLastName === ''
-                    ? 'Last Name *'
-                    : 'Last Name'}
-                </label>
-                <input
-                  className={
-                    showFailureIndicators && invoiceData.clientLastName === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                  type="text"
-                  name="clientLastName"
-                  value={invoiceData.clientLastName}
-                  onChange={handleChangeInvoiceData}
-                />
-              </div>
+          <div className="section">
+            <div>
+              <label
+                className={
+                  showFailureIndicators && clientAddress.clientStreet === ''
+                    ? 'invalid'
+                    : ''
+                }
+              >
+                {showFailureIndicators && clientAddress.clientStreet === ''
+                  ? 'Street Address *'
+                  : 'Street Address'}
+              </label>
+              <input
+                className={
+                  showFailureIndicators && clientAddress.clientStreet === ''
+                    ? 'invalid'
+                    : ''
+                }
+                type="text"
+                name="clientStreet"
+                value={clientAddress.clientStreet}
+                onChange={handleChangeClientAddress}
+              />
+            </div>
+          </div>
+
+          <div className="section">
+            <div>
+              <label
+                className={
+                  showFailureIndicators && clientAddress.clientCity === ''
+                    ? 'invalid'
+                    : ''
+                }
+              >
+                {showFailureIndicators && clientAddress.clientCity === ''
+                  ? 'City *'
+                  : 'City'}
+              </label>
+              <input
+                className={
+                  showFailureIndicators && clientAddress.clientCity === ''
+                    ? 'invalid'
+                    : ''
+                }
+                type="text"
+                name="clientCity"
+                value={clientAddress.clientCity}
+                onChange={handleChangeClientAddress}
+              />
             </div>
 
-            <div className="section">
-              <div>
-                <label
-                  className={
-                    showFailureIndicators && clientAddress.clientStreet === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                >
-                  {showFailureIndicators && clientAddress.clientStreet === ''
-                    ? 'Street Address *'
-                    : 'Street Address'}
-                </label>
-                <input
-                  className={
-                    showFailureIndicators && clientAddress.clientStreet === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                  type="text"
-                  name="clientStreet"
-                  value={clientAddress.clientStreet}
-                  onChange={handleChangeClientAddress}
-                />
-              </div>
-            </div>
-
-            <div className="section">
-              <div>
-                <label
-                  className={
-                    showFailureIndicators && clientAddress.clientCity === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                >
-                  {showFailureIndicators && clientAddress.clientCity === ''
-                    ? 'City *'
-                    : 'City'}
-                </label>
-                <input
-                  className={
-                    showFailureIndicators && clientAddress.clientCity === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                  type="text"
-                  name="clientCity"
-                  value={clientAddress.clientCity}
-                  onChange={handleChangeClientAddress}
-                />
-              </div>
-
-              <div>
-                <label
-                  className={
-                    showFailureIndicators &&
-                    clientAddress.clientState === 'Choose a state'
-                      ? 'invalid'
-                      : ''
-                  }
-                >
-                  {showFailureIndicators &&
+            <div>
+              <label
+                className={
+                  showFailureIndicators &&
                   clientAddress.clientState === 'Choose a state'
-                    ? 'State *'
-                    : 'State'}
-                </label>
-                <select
-                  className={
-                    showFailureIndicators &&
-                    clientAddress.clientState === 'Choose a state'
-                      ? 'invalid'
-                      : ''
-                  }
-                  name="clientState"
-                  value={selectedState}
-                  onChange={handleChangeClientAddress}
-                >
-                  <option value="" hidden>
-                    Choose a state
-                  </option>
-                  {states?.map((state, i) => {
-                    return <option defaultValue={state}>{state}</option>;
-                  })}
-                </select>
-              </div>
+                    ? 'invalid'
+                    : ''
+                }
+              >
+                {showFailureIndicators &&
+                clientAddress.clientState === 'Choose a state'
+                  ? 'State *'
+                  : 'State'}
+              </label>
+              <select
+                className={
+                  showFailureIndicators &&
+                  clientAddress.clientState === 'Choose a state'
+                    ? 'invalid'
+                    : ''
+                }
+                name="clientState"
+                value={selectedState}
+                onChange={handleChangeClientAddress}
+              >
+                <option value="" hidden>
+                  Choose a state
+                </option>
+                {states?.map((state, i) => {
+                  return <option defaultValue={state}>{state}</option>;
+                })}
+              </select>
+            </div>
 
-              <div>
-                <label
-                  className={
-                    showFailureIndicators && clientAddress.clientZipCode === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                >
-                  {showFailureIndicators && clientAddress.clientZipCode === ''
-                    ? 'Zip Code *'
-                    : 'Zip Code'}
-                </label>
-                <input
-                  className={
-                    showFailureIndicators && clientAddress.clientZipCode === ''
-                      ? 'invalid'
-                      : ''
-                  }
-                  type="number"
-                  name="clientZipCode"
-                  value={clientAddress.clientZipCode}
-                  onChange={handleChangeClientAddress}
-                />
-              </div>
+            <div>
+              <label
+                className={
+                  showFailureIndicators && clientAddress.clientZipCode === ''
+                    ? 'invalid'
+                    : ''
+                }
+              >
+                {showFailureIndicators && clientAddress.clientZipCode === ''
+                  ? 'Zip Code *'
+                  : 'Zip Code'}
+              </label>
+              <input
+                className={
+                  showFailureIndicators && clientAddress.clientZipCode === ''
+                    ? 'invalid'
+                    : ''
+                }
+                type="number"
+                name="clientZipCode"
+                value={clientAddress.clientZipCode}
+                onChange={handleChangeClientAddress}
+              />
             </div>
           </div>
 
