@@ -326,7 +326,7 @@ export default function NewInvoice() {
                     return showFailureIndicators && item.itemName === '' ? (
                       <span>Item *</span>
                     ) : (
-                      'Item'
+                      <span>Item</span>
                     );
                   })}
                 </label>
@@ -346,7 +346,7 @@ export default function NewInvoice() {
                     return showFailureIndicators && item.quantity === '' ? (
                       <span>Qty *</span>
                     ) : (
-                      'Qty'
+                      <span>Qty</span>
                     );
                   })}
                 </label>
@@ -366,7 +366,7 @@ export default function NewInvoice() {
                     return showFailureIndicators && item.price === '' ? (
                       <span>Price *</span>
                     ) : (
-                      'Price'
+                      <span>Price</span>
                     );
                   })}
                 </label>
@@ -457,7 +457,7 @@ export default function NewInvoice() {
 
             <div className="section add-item">
               <div className="item-name" onClick={addInput}>
-                Add Item
+                + Add Item
               </div>
               <div className="item-qty"></div>
               <div className="item-price">Total Amount</div>

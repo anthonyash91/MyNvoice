@@ -127,7 +127,12 @@ body {
 
       .item-name {
         color: $purple;
+        cursor: pointer;
         font-weight: 500;
+
+        &:active {
+          transform: translateY(1px);
+        }
       }
 
       .item-price {
