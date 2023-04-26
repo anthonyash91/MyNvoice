@@ -308,7 +308,7 @@ export default function NewInvoice() {
           </div>
 
           <div id="items">
-            <div id="items-header">Invoice Items</div>
+            <div id="items-header">Invoice Items ({itemsArr.length})</div>
 
             <div className="section items">
               <div className="item-name">
