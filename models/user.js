@@ -10,7 +10,11 @@ const userSchema = new Schema(
       default:
         'https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-512x488-rddkk3u9.png'
     },
-    name: {
+    firstName: {
+      type: String,
+      required: true
+    },
+    lastName: {
       type: String,
       required: true
     },
@@ -29,7 +33,7 @@ const userSchema = new Schema(
       userStreet: { type: String, required: true },
       userCity: { type: String, required: true },
       userState: { type: String, required: true },
-      userPostalCode: { type: String, required: true }
+      userZipCode: { type: String, required: true }
     },
     password: {
       type: String,

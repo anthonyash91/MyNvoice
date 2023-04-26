@@ -1,5 +1,7 @@
 export function shortenNum(num) {
-  if (num < 1e3) return num.toFixed(2);
+  if (num < 1e6)
+    return num?.toFixed(2).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+  // if (num < 1e6) return num.toFixed(2);
 
   let letter = [
       { v: 1e3, s: 'k+' },
@@ -16,8 +18,4 @@ export function shortenNum(num) {
     (num / letter[t].v).toFixed(2).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, '$1') +
     letter[t].s
   );
-}
-
-export function convertNum(num) {
-  return num?.toFixed(2).replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 }

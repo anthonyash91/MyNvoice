@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@700&family=Roboto:wght@300;400;500;700;900&display=swap');
 
 $blue: #0A90CA;
+$purple: #8A60DD;
 $white: #FFFFFF;
 $light-gray: #FAFAFA;
 $medium-gray: #E8EAEC;
 $dark-gray: #C4C4C4;
+$error: #ec5757;
 
 * {
   box-sizing: border-box;
@@ -60,7 +62,7 @@ body {
       background-color: #FBFBFC;
       border: 1px solid #E8E9EA;
       border-radius: 8px;
-      margin-bottom: 26px;
+      margin-bottom: 28px;
       padding: 24px;
 
       label {
@@ -76,7 +78,7 @@ body {
     #items-header {
       font-size: 18px;
       font-weight: 500;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
 
     .item-name {
@@ -95,7 +97,7 @@ body {
       width: 20%;
 
       svg {
-        fill: #8A60DD;
+        fill: $purple;
         height: 16px;
       }
 
@@ -111,18 +113,20 @@ body {
     margin-bottom: 15px;
     width: 100%;
 
-    div {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      width: 100%;
+    &:nth-child(3) .item-trash {
+      opacity: .3;
+      pointer-events: none;
+    }
+
+    &.items {
+      margin-bottom: 6px;
     }
 
     &.add-item {
       font-size: 16px;
 
       .item-name {
-        color: #8A60DD;
+        color: $purple;
         font-weight: 500;
       }
 
@@ -138,10 +142,30 @@ body {
     &:last-child {
       margin-bottom: 0;
     }
+ 
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
   }
 
   label {
     color: #787E8A;
+    transition: .2s;
+
+    &.invalid {
+      color: $error!important;
+    }
+
+    span {
+      display: none;
+
+      &:first-child {
+        display: inline-block;
+      }
+    }
   }
 
   input, select, textarea {
@@ -150,7 +174,12 @@ body {
     border-radius: 6px;
     font-size: 14px;
     padding: 11px 12px 10px 12px;
+    transition: .2s;
     width: 100%;
+
+    &.invalid {
+      border-color: $error;
+    }
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -176,6 +205,7 @@ body {
     border-top: 1px solid #E2E2E4;
     display: flex;
     justify-content: space-between;
+    padding: 30px;
 
     .right {
       display: flex;
@@ -200,7 +230,7 @@ button {
   }
 
   &.send {
-    background-color: #8A60DD;
+    background-color: $purple;
     color: #fff;
   }
 

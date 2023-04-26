@@ -7,12 +7,12 @@ const invoiceSchema = new Schema(
       userStreet: { type: String, required: true },
       userCity: { type: String, required: true },
       userState: { type: String, required: true },
-      userPostalCode: { type: String, required: true }
+      userZipCode: { type: String, required: true }
     },
     invoiceId: { type: String, unique: true },
     status: { type: String },
     invoiceDate: { type: String, required: true },
-    dueDate: { type: String },
+    dueDate: { type: String, required: true },
     invoiceTotal: { type: Number },
     items: [
       {
@@ -23,16 +23,16 @@ const invoiceSchema = new Schema(
         total: { type: Number }
       }
     ],
-    clientName: { type: String, required: true },
+    clientFirstName: { type: String, required: true },
+    clientLastName: { type: String, required: true },
     clientEmail: { type: String, required: true },
     clientAddress: {
       clientStreet: { type: String, required: true },
       clientCity: { type: String, required: true },
       clientState: { type: String, required: true },
-      clientPostalCode: { type: String, required: true }
+      clientZipCode: { type: String, required: true }
     },
     description: { type: String, required: true },
-    paymentTerm: { type: Number, required: true },
     notes: { type: String, required: false }
   },
   {

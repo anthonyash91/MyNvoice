@@ -6,26 +6,21 @@ const dataController = {
     try {
       console.log(req.body);
       const user = await User.findById(req.params.userId);
-      req.body.invoiceId = createInvoiceId();
-      req.body.invoiceDate =
-        new Date().toDateString().slice(4, 10) +
-        ',' +
-        new Date().toDateString().slice(10, 16);
 
       const createdInvoice = await Invoice.create(req.body);
 
       let updatedInvoice = await Invoice.findByIdAndUpdate(createdInvoice._id, [
-        {
-          $set: {
-            dueDate: {
-              $dateAdd: {
-                startDate: '$createdAt',
-                unit: 'day',
-                amount: '$paymentTerm'
-              }
-            }
-          }
-        },
+        // {
+        //   $set: {
+        //     dueDate: {
+        //       $dateAdd: {
+        //         startDate: '$createdAt',
+        //         unit: 'day',
+        //         amount: '$paymentTerm'
+        //       }
+        //     }
+        //   }
+        // },
         {
           $set: {
             items: {
